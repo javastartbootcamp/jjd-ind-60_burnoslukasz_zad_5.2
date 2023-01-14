@@ -37,22 +37,14 @@ public class Room {
 
     }
 
-    public double decreaseTemperature() {
-        if (noConditioner()) {
+    public double decreaseTemperature(Room room) {
+        if (!room.isAirConditioner()) {
             return getTemperature();
-        } else if (isConditioner() && aboveMinTemperature()) {
+        } else if (room.isAirConditioner() && aboveMinTemperature()) {
             return setTemperature(getTemperature() - 1);
         } else {
             return setTemperature(21);
         }
-    }
-
-    private boolean isConditioner() {
-        return isAirConditioner();
-    }
-
-    private boolean noConditioner() {
-        return !isAirConditioner();
     }
 
     private boolean aboveMinTemperature() {

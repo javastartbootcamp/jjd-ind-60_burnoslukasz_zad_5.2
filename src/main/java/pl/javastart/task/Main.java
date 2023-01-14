@@ -6,14 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
         Room room = new Room(20, 23, true);
-        String s = room.roomInfo();
+        Room room1 = new Room(30, 25, true);
+        String s = room1.roomInfo();
         System.out.println(s);
-        room.decreaseTemperature();
-        room.decreaseTemperature();
-        room.decreaseTemperature();
-        room.decreaseTemperature();
-        room.decreaseTemperature();
-        String currentTemp = room.roomInfo();
+        room1.decreaseTemperature(room1);
+        room1.decreaseTemperature(room1);
+        room1.decreaseTemperature(room1);
+        room1.decreaseTemperature(room1);
+        room1.decreaseTemperature(room1);
+        String currentTemp = room1.roomInfo();
         System.out.println(currentTemp);
 
     }
