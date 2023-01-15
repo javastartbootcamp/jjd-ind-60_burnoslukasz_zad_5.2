@@ -4,6 +4,15 @@ public class Room {
     private boolean airConditioner;
     private int squareFootage;
     private double temperature;
+    private double minTemperature;
+
+    public double getMinTemperature() {
+        return minTemperature;
+    }
+
+    public void setMinTemperature(double minTemperature) {
+        this.minTemperature = minTemperature;
+    }
 
     public int getSquareFootage() {
         return squareFootage;
@@ -30,25 +39,22 @@ public class Room {
         this.airConditioner = airConditioner;
     }
 
-    public Room(int squareFootage, double temperature, boolean airConditioner) {
+    public Room(int squareFootage, double temperature, boolean airConditioner, double minTemperature) {
         this.squareFootage = squareFootage;
         this.temperature = temperature;
         this.airConditioner = airConditioner;
+        this.minTemperature = minTemperature;
 
     }
 
-    public double decreaseTemperature(Room room) {
-        if (!room.isAirConditioner()) {
-            return getTemperature();
-        } else if (room.isAirConditioner() && aboveMinTemperature()) {
-            return setTemperature(getTemperature() - 1);
+    public void decreaseTemperature() {
+        if (!isAirConditioner()) {
+            return;
+        } else if (temperature >= minTemperature + 1) {
+            setTemperature(temperature - 1);
         } else {
-            return setTemperature(21);
+            setTemperature(minTemperature);
         }
-    }
-
-    private boolean aboveMinTemperature() {
-        return getTemperature() >= 22;
     }
 
     public String roomInfo() {

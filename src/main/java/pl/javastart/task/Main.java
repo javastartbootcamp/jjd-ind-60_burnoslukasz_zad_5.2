@@ -5,16 +5,14 @@ import pl.javastart.task.dataandlogic.Room;
 public class Main {
 
     public static void main(String[] args) {
-        Room room = new Room(20, 23, true);
-        Room room1 = new Room(30, 25, true);
-        String s = room1.roomInfo();
+        Room room1 = new Room(20, 23, true, 20);
+        Room room2 = new Room(30, 23.7, true, 21);
+        String s = room2.roomInfo();
         System.out.println(s);
-        room1.decreaseTemperature(room1);
-        room1.decreaseTemperature(room1);
-        room1.decreaseTemperature(room1);
-        room1.decreaseTemperature(room1);
-        room1.decreaseTemperature(room1);
-        String currentTemp = room1.roomInfo();
+        room2.decreaseTemperature();
+        room2.decreaseTemperature();
+        room2.decreaseTemperature();
+        String currentTemp = room2.roomInfo();
         System.out.println(currentTemp);
 
     }
