@@ -2,7 +2,7 @@ package pl.javastart.task.dataandlogic;
 
 public class Room {
     private boolean airConditioner;
-    private int squareFootage;
+    private int squareMeter;
     private double temperature;
     private double minTemperature;
 
@@ -15,11 +15,11 @@ public class Room {
     }
 
     public int getSquareFootage() {
-        return squareFootage;
+        return squareMeter;
     }
 
     public void setSquareFootage(int squareFootage) {
-        this.squareFootage = squareFootage;
+        this.squareMeter = squareFootage;
     }
 
     public double getTemperature() {
@@ -39,8 +39,8 @@ public class Room {
         this.airConditioner = airConditioner;
     }
 
-    public Room(int squareFootage, double temperature, boolean airConditioner, double minTemperature) {
-        this.squareFootage = squareFootage;
+    public Room(int squareMeter, double temperature, boolean airConditioner, double minTemperature) {
+        this.squareMeter = squareMeter;
         this.temperature = temperature;
         this.airConditioner = airConditioner;
         this.minTemperature = minTemperature;
@@ -48,19 +48,20 @@ public class Room {
     }
 
     public void decreaseTemperature() {
-        if (!isAirConditioner()) {
+        if (!airConditioner) {
             return;
-        } else if (temperature >= minTemperature + 1) {
-            setTemperature(temperature - 1);
+        }
+        if (temperature >= minTemperature + 1) {
+            temperature--;
         } else {
-            setTemperature(minTemperature);
+            temperature = minTemperature;
         }
     }
 
     public String roomInfo() {
-        return "Metraż pokoju: " + getSquareFootage() + "m2." + " " +
-                " Temperatura Pokoju: " + getTemperature() + " st." +
-                " Czy posiada klimatyzator?: " + isAirConditioner();
+        return "Metraż pokoju: " + squareMeter + "m2." + " " +
+                " Temperatura Pokoju: " + temperature + " st." +
+                " Czy posiada klimatyzator?: " + airConditioner;
     }
 
 }
